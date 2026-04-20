@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Student Stress Predictor</title>
+
+<style>
+body{
+    margin:0;
+    padding:0;
+    font-family: Arial, sans-serif;
+    background:#eef2f7;
+}
+
+.container{
+    width:90%;
+    max-width:650px;
+    margin:30px auto;
+    background:white;
+    padding:30px;
+    border-radius:12px;
+    box-shadow:0 0 12px rgba(0,0,0,0.12);
+}
+
+h1{
+    text-align:center;
+    margin-bottom:8px;
+    color:#222;
+}
+
+.sub{
+    text-align:center;
+    color:#666;
+    margin-bottom:25px;
+}
+
+.grid{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:15px;
+}
+
+.field{
+    display:flex;
+    flex-direction:column;
+}
+
+label{
+    font-size:14px;
+    margin-bottom:6px;
+    color:#333;
+}
+
+input{
+    padding:10px;
+    border:1px solid #ccc;
+    border-radius:6px;
+    font-size:14px;
+}
+
+input:focus{
+    outline:none;
+    border-color:#2d89ef;
+}
+
+button{
+    width:100%;
+    margin-top:25px;
+    padding:14px;
+    border:none;
+    border-radius:6px;
+    background:#2d89ef;
+    color:white;
+    font-size:16px;
+    cursor:pointer;
+}
+
+button:hover{
+    background:#1c6fd1;
+}
+
+.result{
+    margin-top:20px;
+    padding:15px;
+    background:#f0fff0;
+    border:1px solid #b6dfb6;
+    border-radius:6px;
+    text-align:center;
+    font-size:18px;
+    font-weight:bold;
+}
+
+.note{
+    margin-top:18px;
+    text-align:center;
+    font-size:12px;
+    color:#777;
+}
+
+@media(max-width:700px){
+.grid{
+grid-template-columns:1fr;
+}
+}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+
+<h1>🎓 Student Stress Predictor</h1>
+<div class="sub">Fill in your details to estimate your stress level</div>
+
+<form action="/predict" method="post">
+
+<div class="grid">
+
+<div class="field">
+<label>Anxiety Level</label>
+<input type="number" name="anxiety_level" min="0" max="10" required>
+</div>
+
+<div class="field">
+<label>Self Esteem</label>
+<input type="number" name="self_esteem" min="0" max="10" required>
+</div>
+
+<div class="field">
+<label>Mental Health History</label>
+<input type="number" name="mental_health_history" min="0" max="1" required>
+</div>
+
+<div class="field">
+<label>Depression</label>
+<input type="number" name="depression" min="0" max="10" required>
+</div>
+
+<div class="field">
+<label>Headache</label>
+<input type="number" name="headache" min="0" max="10" required>
+</div>
+
+<div class="field">
+<label>Blood Pressure</label>
+<input type="number" name="blood_pressure" min="0" max="10" required>
+</div>
+
+<div class="field">
+<label>Sleep Quality</label>
+<input type="number" name="sleep_quality" min="0" max="10" required>
+</div>
+
+<div class="field">
+<label>Breathing Problem</label>
+<input type="number" name="breathing_problem" min="0" max="10" required>
+</div>
+
+<div class="field">
+<label>Noise Level</label>
+<input type="number" name="noise_level" min="0" max="10" required>
+</div>
+
+<div class="field">
+<label>Living Conditions</label>
+<input type="number" name="living_conditions" min="0" max="10" required>
+</div>
+
+<div class="field">
+<label>Safety</label>
+<input type="number" name="safety" min="0" max="10" required>
+</div>
+
+<div class="field">
+<label>Basic Needs</label>
+<input type="number" name="basic_needs" min="0" max="10" required>
+</div>
+
+<div class="field">
+<label>Academic Performance</label>
+<input type="number" name="academic_performance" min="0" max="10" required>
+</div>
+
+<div class="field">
+<label>Study Load</label>
+<input type="number" name="study_load" min="0" max="10" required>
+</div>
+
+<div class="field">
+<label>Teacher Student Relationship</label>
+<input type="number" name="teacher_student_relationship" min="0" max="10" required>
+</div>
+
+<div class="field">
+<label>Future Career Concerns</label>
+<input type="number" name="future_career_concerns" min="0" max="10" required>
+</div>
+
+<div class="field">
+<label>Social Support</label>
+<input type="number" name="social_support" min="0" max="10" required>
+</div>
+
+<div class="field">
+<label>Peer Pressure</label>
+<input type="number" name="peer_pressure" min="0" max="10" required>
+</div>
+
+<div class="field">
+<label>Extracurricular Activities</label>
+<input type="number" name="extracurricular_activities" min="0" max="10" required>
+</div>
+
+<div class="field">
+<label>Bullying</label>
+<input type="number" name="bullying" min="0" max="10" required>
+</div>
+
+</div>
+
+<button type="submit">Predict Stress Level</button>
+
+</form>
+
+{% if prediction_text %}
+<div class="result">
+{{ prediction_text }}
+</div>
+{% endif %}
+
+<div class="note">
+Made by DTU CSE Students | Academic Project
+</div>
+
+</div>
+
+</body>
+</html>
